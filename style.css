@@ -1,0 +1,136 @@
+/* Styles for Sudoku Solver */
+.sudoku-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 7vw);
+    grid-template-rows: repeat(9, 7vw);
+    gap: 2px;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 0;
+    max-width: 63vw;
+    max-height: 63vw;
+}
+.sudoku-cell {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 2em;
+    border: 1px solid #bbb;
+    outline: none;
+    box-sizing: border-box;
+    /* Hide number input spinners */
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+.sudoku-cell::-webkit-outer-spin-button,
+.sudoku-cell::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.sudoku-cell[type=number] {
+    appearance: textfield;
+}
+/* Darker borders for 3x3 subgrids */
+.sudoku-cell {
+    border-top: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+}
+/* Thicker top border for every 3rd row */
+.sudoku-cell:nth-child(n+1):nth-child(-n+9),
+.sudoku-cell:nth-child(n+28):nth-child(-n+36),
+.sudoku-cell:nth-child(n+55):nth-child(-n+63) {
+    border-top: 3px solid #333;
+}
+/* Thicker left border for every 3rd column */
+.sudoku-cell:nth-child(3n+1) {
+    border-left: 3px solid #333;
+}
+/* Thicker right border for last column */
+.sudoku-cell:nth-child(9n) {
+    border-right: 3px solid #333;
+}
+/* Thicker bottom border for last row */
+.sudoku-cell:nth-child(n+73):nth-child(-n+81) {
+    border-bottom: 3px solid #333;
+}
+.solve-btn {
+    margin: 40px auto 0 auto;
+    height: 64px;
+    min-width: 180px;
+    font-size: 2em;
+    padding: 0 48px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.solve-btn:hover {
+    background: #0056b3;
+}
+.reset-btn {
+    margin: 16px auto 0 auto;
+    height: 48px;
+    min-width: 120px;
+    font-size: 1.2em;
+    padding: 0 32px;
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.reset-btn:hover {
+    background: #c82333;
+}
+@media (max-width: 900px) {
+  .sudoku-grid {
+    grid-template-columns: repeat(9, 9vw);
+    grid-template-rows: repeat(9, 9vw);
+    max-width: 81vw;
+    max-height: 81vw;
+  }
+}
+@media (max-width: 600px) {
+  .sudoku-flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sudoku-grid {
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
+    max-width: 100vw;
+    max-height: 100vw;
+    margin-top: 20px;
+  }
+  .sudoku-cell {
+    width: 38px;
+    height: 38px;
+    font-size: 1em;
+  }
+  .solve-btn {
+    margin: 16px auto 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    align-self: unset;
+    height: 48px;
+    font-size: 1.2em;
+    padding: 0 32px;
+  }
+}
