@@ -108,7 +108,7 @@ function solveSudoku(mat) {
     let solvable = solveSudoku(matrix);
     // Update the grid with the solved values
     if (!solvable)
-      alert('Sudoku cannot be solved');
+      alert('Sudoku cannot be solved'); // Test
     else
     {
       for (let row = 0; row < 9; row++) {
