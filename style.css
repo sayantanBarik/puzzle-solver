@@ -1,11 +1,102 @@
+@media (max-width: 600px) {
+  .sudoku-header {
+    justify-content: center;
+    padding-left: 0;
+  }
+  .sudoku-title {
+    text-align: center !important;
+    font-size: 2em !important;
+  }
+}
+/* App title styles */
+.sudoku-header {
+    width: 100%;
+    margin-top: 48px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    /* Removed left padding for better alignment */
+}
+.sudoku-title {
+    font-size: 4.2em;
+    font-weight: 800;
+    color: #7fdbff;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0 0.2em;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+}
+/* Footer styles */
+.sudoku-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    background: #e3f0ff;
+    border-top: 2px solid #b3d1f7;
+    padding: 18px 0 10px 0;
+    box-shadow: 0 -2px 8px rgba(0,64,128,0.04);
+}
+.sudoku-footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.sudoku-footer a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+.dark-mode {
+    background: linear-gradient(135deg, #232946 0%, #16161a 100%);
+    color: #eaeaea;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+.sudoku-flex-container {
+    background: rgba(40,44,52,0.95);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 48px 12px #00bfff99;
+    padding: 32px 0 32px 0;
+    margin-top: 16px;
+}
+.hints-section {
+    background: #232946;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    padding: 20px;
+    color: #eaeaea;
+}
+/* Dark mode footer styles */
+.sudoku-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    background: #16161a;
+    border-top: 2px solid #232946;
+    padding: 18px 0 10px 0;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.10);
+}
+.sudoku-footer a {
+    color: #7fdbff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.sudoku-footer a:hover {
+    color: #00bfff;
+    text-decoration: underline;
+}
 /* Styles for Sudoku Solver */
 .sudoku-flex-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 100vw;
-    min-height: 100vh;
+    width: 100%;
     box-sizing: border-box;
 }
 .sudoku-grid {
@@ -13,7 +104,7 @@
     grid-template-columns: repeat(9, 7vw);
     grid-template-rows: repeat(9, 7vw);
     gap: 2px;
-    justify-content: center;
+    justify-content: start;
     margin-top: 40px;
     margin-left: 0;
     max-width: 63vw;
@@ -132,5 +223,17 @@
     height: 48px;
     font-size: 1.2em;
     padding: 0 32px;
+  }
+}
+.wrapper
+{
+  min-width: 60vw;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .wrapper
+  {
+    max-width:100vw;
   }
 }

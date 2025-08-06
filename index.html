@@ -6,12 +6,31 @@
     <title>Sudoku Solver</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
+  <div class="wrapper">
+    <header class="sudoku-header">
+      <h1 class="sudoku-title left-align">Solve-a-Sudoku</h1>
+    </header>
+    <section class="hints-section" style="max-width: 600px; margin: 0 auto 24px auto; background: #f8f9fa; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 20px; text-align: left; font-size: 1.1em; color: #333;">
+      <h2 style="font-size: 1.3em; font-weight: 600; margin-bottom: 10px; color: #007bff;">How to use the Sudoku Solver</h2>
+      <ul style="padding-left: 20px;">
+        <li>Enter your Sudoku puzzle in the grid. Leave empty cells blank or enter 0.</li>
+        <li>Click <b>Solve</b> to automatically fill in the solution.</li>
+        <li>Click <b>Reset</b> to clear the grid and start over.</li>
+        <li>Only single digits (1-9) are allowed in each cell.</li>
+        <li>Use the app on desktop or mobile—it's fully responsive!</li>
+      </ul>
+    </section>
     <div class="sudoku-flex-container">
       <div class="sudoku-grid" id="sudoku-grid"></div>
       <button id="solve-btn" class="solve-btn">Solve</button>
         <button id="reset-btn" class="reset-btn">Reset</button>
     </div>
+   
     <script src="logic.js"></script>
+  </div>
+  <footer class="sudoku-footer">
+    <a href="https://github.com/sayantanBarik/sudoku-solver" target="_blank">View on GitHub</a>
+  </footer>
 </body>
 </html>

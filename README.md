@@ -26,10 +26,9 @@ A responsive web-based Sudoku solver built with HTML, CSS, and JavaScript.
 - The solver uses a backtracking algorithm implemented in JavaScript.
 - The UI is fully responsive and touch-friendly.
 
-## Screenshots
-> Add screenshots here if desired.
+
 
 ## Developers
-- sayantanBarik
-- GitHub Copilot
+- [sayantanBarik](https://github.com/sayantanBarik)
+- [GitHub Copilot](https://github.com/features/copilot)
 

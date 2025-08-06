@@ -85,7 +85,7 @@ function solveSudokuRec(mat, row, col) {
 }
 
 function solveSudoku(mat) {
-    solveSudokuRec(mat, 0, 0);
+    return solveSudokuRec(mat, 0, 0);
 }
 
   // Add listener to the Solve button
@@ -105,13 +105,19 @@ function solveSudoku(mat) {
       }
       matrix.push(rowArr);
     }
-    solveSudoku(matrix);
+    let solvable = solveSudoku(matrix);
     // Update the grid with the solved values
-    for (let row = 0; row < 9; row++) {
+    if (!solvable)
+      alert('Sudoku cannot be solved');
+    else
+    {
+      for (let row = 0; row < 9; row++) {
       for (let col = 0; col < 9; col++) {
         const idx = row * 9 + col;
         cells[idx].value = matrix[row][col] || '';
       }
     }
+    }
+    
   });
 });
