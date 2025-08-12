@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const cells = grid.querySelectorAll('.sudoku-cell');
     cells.forEach(function(input) {
       input.value = '';
+      input.classList.remove('newly-added');
     });
   });
 
@@ -96,27 +97,45 @@ function solveSudoku(mat) {
   document.getElementById('solve-btn').addEventListener('click', function() {
     const cells = grid.querySelectorAll('.sudoku-cell');
     const matrix = [];
+    const original = [];
     for (let row = 0; row < 9; row++) {
       const rowArr = [];
+      const origArr = [];
       for (let col = 0; col < 9; col++) {
         const idx = row * 9 + col;
         let val = cells[idx].value;
         rowArr.push(val === '' ? 0 : parseInt(val, 10));
+        origArr.push(val === '' ? 0 : parseInt(val, 10));
       }
       matrix.push(rowArr);
+      original.push(origArr);
     }
     let solvable = solveSudoku(matrix);
     // Update the grid with the solved values
-    if (!solvable)
-      alert('Sudoku cannot be solved'); // Test
-    else
-    {
+    if (!solvable) {
+      document.getElementById('unsolvable-modal').style.display = 'flex';
+      // Close modal on click of X or outside modal-content
+      document.getElementById('close-modal').onclick = function() {
+        document.getElementById('unsolvable-modal').style.display = 'none';
+      };
+      document.getElementById('unsolvable-modal').onclick = function(e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+        }
+      };
+    } else {
       for (let row = 0; row < 9; row++) {
-      for (let col = 0; col < 9; col++) {
-        const idx = row * 9 + col;
-        cells[idx].value = matrix[row][col] || '';
+        for (let col = 0; col < 9; col++) {
+          const idx = row * 9 + col;
+          // Remove previous highlight
+          cells[idx].classList.remove('newly-added');
+          // If the cell was empty before and now has a value, highlight it
+          if (original[row][col] === 0 && matrix[row][col] !== 0) {
+            cells[idx].classList.add('newly-added');
+          }
+          cells[idx].value = matrix[row][col] || '';
+        }
       }
-    }
     }
     
   });
