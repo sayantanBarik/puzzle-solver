@@ -1,32 +1,34 @@
-# Sudoku Solver
 
-A responsive web-based Sudoku solver built with HTML, CSS, and JavaScript.
+# Puzzle Solver Web App
+
+A responsive web-based dashboard for solving Sudoku and Nonogram puzzles, built with modular HTML, CSS, and JavaScript files.
 
 ## Features
-- 9x9 Sudoku grid with dynamic cell generation
-- Responsive design for desktop and mobile
-- Input restriction: only single digits (0-9) allowed
-- Solve button to automatically solve the puzzle
-- Reset button to clear the grid
-- Visual 3x3 subgrid borders for clarity
+- Dashboard to select between Sudoku and Nonogram solvers
+- Sudoku: 9x9 grid, responsive design, input validation, solve/reset, hints, modal for unsolvable puzzles
+- Nonogram: Dynamic clue input, responsive grid, solve/reset, hints, show/hide clues, example puzzles
+- Consistent dark/light theme, modern UI, mobile-friendly
 
 ## Usage
-1. Open `index.html` in your browser.
-2. Enter your Sudoku puzzle (leave empty cells as blank or 0).
-3. Click **Solve** to fill in the solution.
-4. Click **Reset** to clear the grid.
+1. Open `index.html` in your browser to access the dashboard.
+2. Select either Sudoku Solver or Nonogram Solver.
+3. Use the respective solver's features to solve your puzzle.
 
 ## Project Structure
-- `index.html` — Main HTML file
-- `style.css` — All styles and responsive layout
-- `logic.js` — Dynamic grid generation, input handling, and Sudoku solving logic
+- `index.html` — Dashboard for selecting puzzle type
+- `styles.css` — Dashboard styles
+- `sudoku.html` — Sudoku solver UI
+- `sudoku-logic.js` — Sudoku grid generation, input handling, and solving logic
+- `sudoku-styles.css` — Sudoku solver styles
+- `nonogram.html` — Nonogram solver UI
+- `nono-logic.js` — Nonogram solving logic
+- `nonogram-styles.css` — Nonogram solver styles
 
 ## How it works
-- The grid is generated dynamically on page load.
-- The solver uses a backtracking algorithm implemented in JavaScript.
-- The UI is fully responsive and touch-friendly.
-
-
+- Sudoku grid and Nonogram clues are generated dynamically
+- Sudoku uses a backtracking algorithm for solving
+- Nonogram uses logic-based solving from clues
+- All UI is fully responsive and touch-friendly
 
 ## Developers
 - [sayantanBarik](https://github.com/sayantanBarik)

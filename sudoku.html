@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="sudoku-styles.css">
+</head>
+<body class="dark-mode">
+  <div class="container">
+    <header style="width:100%; text-align:center; margin-top:32px;">
+  <h1 class="sudoku-title">Sudoku Solver</h1>
+    </header>
+    <section class="hints-section" style="max-width: 600px; margin: 0 auto 24px auto; background: #f8f9fa; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 20px; text-align: left; font-size: 1.1em; color: #333;">
+  <h2 class="sudoku-hints-title">How to use the Sudoku Solver</h2>
+  <ul>
+        <li>Enter your Sudoku puzzle in the grid. Leave empty cells blank or enter 0.</li>
+        <li>Click <b>Solve</b> to automatically fill in the solution.</li>
+        <li>Click <b>Reset</b> to clear the grid and start over.</li>
+        <li>Only single digits (1-9) are allowed in each cell.</li>
+        <li>Use the app on desktop or mobile—it's fully responsive!</li>
+        <li>Learn more about Sudokus <a href="https://en.wikipedia.org/wiki/Sudoku" target="_blank">here</a>.</li>
+      </ul>
+    </section>
+    <div class="sudoku-flex-container">
+      <div class="sudoku-grid" id="sudoku-grid"></div>
+      <button id="solve-btn" class="solve-btn">Solve</button>
+        <button id="reset-btn" class="reset-btn">Reset</button>
+    </div>
+   
+    <script src="sudoku-logic.js"></script>
+  <div id="loading-screen" class="loading-modal" style="display:none;">
+    <div class="loading-content">
+      <div class="spinner"></div>
+      <p>Solving Sudoku...</p>
+    </div>
+  </div>
+  <div id="unsolvable-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal">&times;</span>
+      <p>Sudoku cannot be solved</p>
+    </div>
+  </div>
+  </div>
+  
+    <footer style="margin-top:48px; text-align:center; color:#aaa; font-size:0.95em;">
+  &copy; 2025 Puzzle Solver | <a href="https://github.com/sayantanBarik/sudoku-solver" target="_blank">GitHub</a>
+    </footer>
+</body>
+</html>

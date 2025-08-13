@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nonogram Solver Test</title>
+  <link rel="stylesheet" href="nonogram-styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Nonogram Solver</h1>
+    <div class="hints-section">
+      <h2>Hints</h2>
+      <ul>
+        <li>Enter clues for each row and column. Each clue represents a block of filled cells.</li>
+        <li>Separate multiple blocks in a row/column with additional inputs.</li>
+        <li>Click "+ Add Row" or "+ Add Column" to add more rows/columns.</li>
+        <li>Use "Show Example" for a sample puzzle.</li>
+        <li>Click "Solve Nonogram" to see the solution.</li>
+        <li>Use "Show Clues" to display clues with the solved grid.</li>
+        <li>Click "New Nonogram" to reset and start over.</li>
+        <li>Learn more about Nonograms <a href="https://en.wikipedia.org/wiki/Nonogram" target="_blank">here</a>.</li>
+      </ul>
+    </div>
+    <div id="clues-section">
+    <form id="nonogram-form" autocomplete="off">
+      <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: flex-start;">
+        <div style="flex: 1 1 320px; min-width: 220px;">
+          <h2 style="font-size:1.1em; color:#007bff;">Row Clues</h2>
+          <div id="rows-inputs"></div>
+          <button type="button" id="add-row" style="margin-top:8px;">+ Add Row</button>
+        </div>
+        <div style="flex: 1 1 320px; min-width: 220px;">
+          <h2 style="font-size:1.1em; color:#007bff;">Column Clues</h2>
+          <div id="cols-inputs"></div>
+          <button type="button" id="add-col" style="margin-top:8px;">+ Add Column</button>
+        </div>
+      </div>
+      <div id="clues-btn-row">
+        <button type="submit" id="solve-btn">Solve Nonogram</button>
+        <button type="button" id="show-example">Show Example</button>
+      </div>
+    </form>
+  </div>
+    <button id="toggle-grid-clues" style="display:none; margin: 18px auto 0 auto; padding: 8px 24px; font-size: 1em; background: #007bff; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Show Clues</button>
+    <div id="output" style="margin-top:24px; display:flex; justify-content:center;"></div>
+    <div id="loading-screen" class="loading-modal" style="display:none;">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <p>Solving Nonogram...</p>
+      </div>
+    </div>
+    <div style="width:100%; display:flex; justify-content:center;">
+      <button id="new-nonogram" style="display:none; margin: 18px auto 0 auto; padding: 8px 24px; font-size: 1em; background: #28a745; color: #fff; border: none; border-radius: 6px; cursor: pointer;">New Nonogram</button>
+    </div>
+    <footer>
+      &copy; 2025 Puzzle Solver | <a href="https://github.com/sayantanBarik/sudoku-solver" target="_blank">GitHub</a>
+    </footer>
+  </div>
+  <script src="nono-logic.js"></script>
+   
+</body>
+</html>
