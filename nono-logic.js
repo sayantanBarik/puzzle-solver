@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
         inp.type = 'number';
         inp.min = '1';
         inp.value = clue;
-        inp.style.width = '48px';
+        inp.removeAttribute('max');
+  inp.style.width = '60px';
         inp.style.marginRight = '4px';
         inp.disabled = false;
         inp.addEventListener('input', function() {
@@ -81,7 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
         inp.type = 'number';
         inp.min = '1';
         inp.value = clue;
-        inp.style.width = '48px';
+        inp.removeAttribute('max');
+  inp.style.width = '60px';
         inp.style.marginRight = '4px';
         inp.disabled = false;
         inp.addEventListener('input', function() {
