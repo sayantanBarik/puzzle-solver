@@ -95,48 +95,54 @@ function solveSudoku(mat) {
   // It assumes the grid is filled with numbers from 0-9, where 0 represents an empty cell
   // and the rest are filled with numbers 1-9.
   document.getElementById('solve-btn').addEventListener('click', function() {
-    const cells = grid.querySelectorAll('.sudoku-cell');
-    const matrix = [];
-    const original = [];
-    for (let row = 0; row < 9; row++) {
-      const rowArr = [];
-      const origArr = [];
-      for (let col = 0; col < 9; col++) {
-        const idx = row * 9 + col;
-        let val = cells[idx].value;
-        rowArr.push(val === '' ? 0 : parseInt(val, 10));
-        origArr.push(val === '' ? 0 : parseInt(val, 10));
-      }
-      matrix.push(rowArr);
-      original.push(origArr);
-    }
-    let solvable = solveSudoku(matrix);
-    // Update the grid with the solved values
-    if (!solvable) {
-      document.getElementById('unsolvable-modal').style.display = 'flex';
-      // Close modal on click of X or outside modal-content
-      document.getElementById('close-modal').onclick = function() {
-        document.getElementById('unsolvable-modal').style.display = 'none';
-      };
-      document.getElementById('unsolvable-modal').onclick = function(e) {
-        if (e.target === this) {
-          this.style.display = 'none';
-        }
-      };
-    } else {
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.display = 'flex';
+    setTimeout(function() {
+      const cells = grid.querySelectorAll('.sudoku-cell');
+      const matrix = [];
+      const original = [];
       for (let row = 0; row < 9; row++) {
+        const rowArr = [];
+        const origArr = [];
         for (let col = 0; col < 9; col++) {
           const idx = row * 9 + col;
-          // Remove previous highlight
-          cells[idx].classList.remove('newly-added');
-          // If the cell was empty before and now has a value, highlight it
-          if (original[row][col] === 0 && matrix[row][col] !== 0) {
-            cells[idx].classList.add('newly-added');
+          let val = cells[idx].value;
+          rowArr.push(val === '' ? 0 : parseInt(val, 10));
+          origArr.push(val === '' ? 0 : parseInt(val, 10));
+        }
+        matrix.push(rowArr);
+        original.push(origArr);
+      }
+      let solvable = solveSudoku(matrix);
+      loadingScreen.style.display = 'none';
+      // Update the grid with the solved values
+      if (!solvable) {
+        document.getElementById('unsolvable-modal').style.display = 'flex';
+        // Close modal on click of X or outside modal-content
+        document.getElementById('close-modal').onclick = function() {
+          document.getElementById('unsolvable-modal').style.display = 'none';
+        };
+        document.getElementById('unsolvable-modal').onclick = function(e) {
+          if (e.target === this) {
+            this.style.display = 'none';
           }
-          cells[idx].value = matrix[row][col] || '';
+        };
+      } else {
+        for (let row = 0; row < 9; row++) {
+          for (let col = 0; col < 9; col++) {
+            const idx = row * 9 + col;
+            // Remove previous highlight
+            cells[idx].classList.remove('newly-added');
+            // If the cell was empty before and now has a value, highlight it
+            if (original[row][col] === 0 && matrix[row][col] !== 0) {
+              cells[idx].classList.add('newly-added');
+            }
+            cells[idx].value = matrix[row][col] || '';
+          }
         }
       }
-    }
+      
+    }, 100);
     
   });
 });

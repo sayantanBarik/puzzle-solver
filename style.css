@@ -1,3 +1,43 @@
+/* Loading screen styles */
+.loading-modal {
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading-content {
+  background: #fff;
+  color: #232946;
+  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px #00bfff99;
+  text-align: center;
+  font-size: 1.3em;
+  min-width: 220px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 6px solid #e3f0ff;
+  border-top: 6px solid #00bfff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 18px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 /* Highlight newly added numbers after solving */
 .sudoku-cell.newly-added {
   background: #d6ffe6 !important;
