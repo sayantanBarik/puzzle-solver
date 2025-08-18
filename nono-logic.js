@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
       groupDiv.style.marginBottom = '6px';
   clueArr.forEach((clue, cIdx) => {
         const inp = document.createElement('input');
-        inp.type = 'number';
-        inp.min = '1';
-        inp.value = clue;
-        inp.removeAttribute('max');
+  inp.type = 'number';
+  inp.min = '1';
+  inp.value = clue;
+  inp.removeAttribute('max');
   inp.style.width = '60px';
         inp.style.marginRight = '4px';
         inp.disabled = false;
@@ -79,10 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
       groupDiv.style.marginBottom = '6px';
   clueArr.forEach((clue, bIdx) => {
         const inp = document.createElement('input');
-        inp.type = 'number';
-        inp.min = '1';
-        inp.value = clue;
-        inp.removeAttribute('max');
+  inp.type = 'number';
+  inp.min = '1';
+  inp.value = clue;
+  inp.removeAttribute('max');
   inp.style.width = '60px';
         inp.style.marginRight = '4px';
         inp.disabled = false;
